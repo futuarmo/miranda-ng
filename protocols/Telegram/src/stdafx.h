@@ -11,21 +11,10 @@
 #include <m_database.h>
 #include <m_langpack.h>
 
-struct CMTProto;
-
 #define MODULE "Telegram"
 
 #include "version.h"
 #include "resource.h"
 #include "mt_proto.h"
-
-struct CMPlugin : public ACCPROTOPLUGIN<CMTProto>
-{
-	CMPlugin() :
-		ACCPROTOPLUGIN<CMTProto>("TELEGRAM")
-	{
-		SetUniqueId("Phone");
-	}
-};
 
 #endif //_COMMON_H_

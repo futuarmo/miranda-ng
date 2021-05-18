@@ -17,11 +17,22 @@ PLUGININFOEX pluginInfo =
 
 };
 
+struct CMTProto;
+
+struct CMPlugin : public ACCPROTOPLUGIN<CMTProto>
+{
+	CMPlugin() :
+		ACCPROTOPLUGIN<CMTProto>("TELEGRAM", pluginInfo)
+	{
+		SetUniqueId("Phone");
+	}
+};
+
 /////////////////////////////////////////////////////////////////////////////////////////
 
 CMPlugin g_plugin;
 
-extern "C" _pfnCrtInit _pRawDllMain = &CMPlugin::RawDllMain;
+//extern "C" _pfnCrtInit _pRawDllMain = &CMPlugin::RawDllMain;
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +42,7 @@ extern "C" __declspec(dllexport) const MUUID MirandaInterfaces[] = { MIID_PROTOC
 
 extern "C" int __declspec(dllexport) Load(void)
 {
-	mir_getLP(&pluginInfo);
+	//mir_getLP(&pluginInfo);
 	return 0;
 }
 
